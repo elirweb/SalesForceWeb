@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{26A6183E-1EB2-4D84-86F7-2CC852E2C648}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SalesForceWeb.Repository</RootNamespace>
+    <AssemblyName>SalesForceWeb.Repository</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EFDataBase\Contexto.cs" />
+    <Compile Include="EntityTypeConfigurations\DocumentoConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\EnderecoConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\ItensConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\MarcaConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\ModeloConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\TipoConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\UsuarioConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\VeiculoConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\VendaConfiguration.cs" />
+    <Compile Include="Migrations\201608130542011_SalesForceWeb.cs" />
+    <Compile Include="Migrations\201608130542011_SalesForceWeb.Designer.cs">
+      <DependentUpon>201608130542011_SalesForceWeb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorys\RepositoryBase.cs" />
+    <Compile Include="Repositorys\RepositoryDocumento.cs" />
+    <Compile Include="Repositorys\RepositoryEndereco.cs" />
+    <Compile Include="Repositorys\RepositoryItens.cs" />
+    <Compile Include="Repositorys\RepositoryTipo.cs" />
+    <Compile Include="Repositorys\RepositoryUsuario.cs" />
+    <Compile Include="Repositorys\RepositoryVeiculo.cs" />
+    <Compile Include="Repositorys\RepositoryVenda.cs" />
+    <Compile Include="Seed\Marca.cs" />
+    <Compile Include="Seed\Modelo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SalesForceWeb.Domain\SalesForceWeb.Domain.csproj">
+      <Project>{a7042cc6-213c-4e05-912f-fc22d1b3c06c}</Project>
+      <Name>SalesForceWeb.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201608130542011_SalesForceWeb.resx">
+      <DependentUpon>201608130542011_SalesForceWeb.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
