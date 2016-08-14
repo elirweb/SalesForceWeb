@@ -1,9 +1,6 @@
 namespace SalesForceWeb.Repository.Migrations
 {
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
     using Seed;
     internal sealed class Configuration : DbMigrationsConfiguration<EFDataBase.Contexto>
     {
@@ -13,7 +10,8 @@ namespace SalesForceWeb.Repository.Migrations
         }
         protected override void Seed(EFDataBase.Contexto context)
         {
-            Marca.MarcaSeed(context);
+            //Marca.MarcaSeed(context);
+            Modelo.ModeloSeed(context);
         }
     }
 }

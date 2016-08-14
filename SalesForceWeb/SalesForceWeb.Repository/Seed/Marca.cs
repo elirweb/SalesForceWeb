@@ -25,8 +25,7 @@ namespace SalesForceWeb.Repository.Seed
 
             contexto.Marca.AddOrUpdate(
                            new Domain.Entities.Marca { Nome = "Honda", DtInclusao = DateTime.Now, DtAlteracao = DateTime.Now });
-
-
+            
             contexto.Marca.AddOrUpdate(
                           new Domain.Entities.Marca { Nome = "Pegeout", DtInclusao = DateTime.Now, DtAlteracao = DateTime.Now });
 

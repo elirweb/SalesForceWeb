@@ -22,7 +22,7 @@ namespace SalesForceWeb.Repository.EntityTypeConfigurations
             Property(c => c.Senha).HasColumnType("VARCHAR").HasMaxLength(300);
 
             Property(c => c.TokenAlteracaoDeSenha).HasColumnName("Token").HasColumnType("VARCHAR");
-
+            Property(c => c.Hora).HasColumnType("VARCHAR").HasMaxLength(5);
             Property(c => c.DtAlteracao).HasColumnType("DATE");
             Property(c => c.DtInclusao).HasColumnType("DATE");
 

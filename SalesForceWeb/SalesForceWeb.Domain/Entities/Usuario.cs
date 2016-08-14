@@ -14,6 +14,7 @@ namespace SalesForceWeb.Domain.Entities
         public string Login { get; set; }
       
         public string Senha  { get; private set; }
+        public string Hora { get; set; }
         public string TokenAlteracaoDeSenha { get; private set; }
 
         protected Usuario() { }
@@ -23,6 +24,7 @@ namespace SalesForceWeb.Domain.Entities
             SetLogin(login);
             Email.SetEmail(email);
             SetNome(nome);
+            Hora = DateTime.Now.ToShortTimeString();
         }
 
         public void SetNome(string nome)
