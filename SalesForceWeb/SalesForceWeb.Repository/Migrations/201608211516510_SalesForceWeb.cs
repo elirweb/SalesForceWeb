@@ -34,6 +34,7 @@ namespace SalesForceWeb.Repository.Migrations
                         Email_Endereco = c.String(maxLength: 100, unicode: false),
                         Login = c.String(),
                         Senha = c.String(maxLength: 300, unicode: false),
+                        Hora = c.String(maxLength: 5, unicode: false),
                         Token = c.String(maxLength: 8000, unicode: false),
                         DtInclusao = c.DateTime(nullable: false, storeType: "date"),
                         DtAlteracao = c.DateTime(storeType: "date"),
@@ -79,7 +80,6 @@ namespace SalesForceWeb.Repository.Migrations
                 c => new
                     {
                         IDVeiculo = c.Int(nullable: false, identity: true),
-                        Nome = c.String(maxLength: 200, unicode: false),
                         CodigoModelo = c.Int(nullable: false),
                         Ano = c.String(maxLength: 10, unicode: false),
                         Cor = c.String(maxLength: 50, unicode: false),

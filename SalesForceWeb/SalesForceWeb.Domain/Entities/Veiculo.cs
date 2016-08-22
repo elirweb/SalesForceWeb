@@ -2,7 +2,6 @@
 {
     public  class Veiculo:Base.EntidadeBase
     {
-        public string Nome { get; set; }
         public int CodigoModelo { get; set; }
 
         public virtual Modelo ModeloModel { get; set; } 

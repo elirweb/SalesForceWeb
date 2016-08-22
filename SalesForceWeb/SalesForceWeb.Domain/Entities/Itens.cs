@@ -11,7 +11,6 @@
         public virtual Entities.Veiculo VeiculoModel { get; set; }
         public virtual Entities.Venda VendaModel { get; set; }
 
-
-
+        
     }
 }

@@ -11,8 +11,7 @@ namespace SalesForceWeb.Repository.EntityTypeConfigurations
             HasKey(c=>c.Id);
             Property(c => c.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
                 .HasColumnName("IDVeiculo");
-            Property(c => c.Nome).HasColumnName("Nome").HasColumnType("VARCHAR").HasMaxLength(200);
-
+       
             HasRequired(c => c.ModeloModel).WithMany().
                 HasForeignKey(c => c.CodigoModelo);
 

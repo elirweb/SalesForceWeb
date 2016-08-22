@@ -5,7 +5,6 @@ namespace SalesForceWeb.Domain.Entities
     public  class Documento:Base.EntidadeBase
     {
         
-
         public RG RG { get; set; }
         public Cpf CPF { get; set; }
 

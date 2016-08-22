@@ -59,17 +59,13 @@
     <Compile Include="EntityTypeConfigurations\UsuarioConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\VeiculoConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\VendaConfiguration.cs" />
-    <Compile Include="Migrations\201608130542011_SalesForceWeb.cs" />
-    <Compile Include="Migrations\201608130542011_SalesForceWeb.Designer.cs">
-      <DependentUpon>201608130542011_SalesForceWeb.cs</DependentUpon>
+    <Compile Include="Migrations\201608211516510_SalesForceWeb.cs" />
+    <Compile Include="Migrations\201608211516510_SalesForceWeb.Designer.cs">
+      <DependentUpon>201608211516510_SalesForceWeb.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608131347501_SalesForceWeb1.cs" />
-    <Compile Include="Migrations\201608131347501_SalesForceWeb1.Designer.cs">
-      <DependentUpon>201608131347501_SalesForceWeb1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608142034009_SalesForceWeb_DB.cs" />
-    <Compile Include="Migrations\201608142034009_SalesForceWeb_DB.Designer.cs">
-      <DependentUpon>201608142034009_SalesForceWeb_DB.cs</DependentUpon>
+    <Compile Include="Migrations\201608211529422_SalesForceWeb1.cs" />
+    <Compile Include="Migrations\201608211529422_SalesForceWeb1.Designer.cs">
+      <DependentUpon>201608211529422_SalesForceWeb1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -97,14 +93,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201608130542011_SalesForceWeb.resx">
-      <DependentUpon>201608130542011_SalesForceWeb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201608211516510_SalesForceWeb.resx">
+      <DependentUpon>201608211516510_SalesForceWeb.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608131347501_SalesForceWeb1.resx">
-      <DependentUpon>201608131347501_SalesForceWeb1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608142034009_SalesForceWeb_DB.resx">
-      <DependentUpon>201608142034009_SalesForceWeb_DB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201608211529422_SalesForceWeb1.resx">
+      <DependentUpon>201608211529422_SalesForceWeb1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -3,7 +3,7 @@ namespace SalesForceWeb.Repository.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class SalesForceWeb_DB : DbMigration
+    public partial class SalesForceWeb1 : DbMigration
     {
         public override void Up()
         {

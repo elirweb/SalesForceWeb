@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Collections.Generic;
 using System.Web.Http;
 
 namespace SalesForceWeb.Api.Controllers
@@ -10,9 +6,11 @@ namespace SalesForceWeb.Api.Controllers
     public class ValuesController : ApiController
     {
         // GET api/values
+       // private readonly Contexto contexto;
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
+            
         }
 
         // GET api/values/5
