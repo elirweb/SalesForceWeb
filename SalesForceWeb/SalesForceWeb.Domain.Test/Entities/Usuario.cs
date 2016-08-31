@@ -21,7 +21,7 @@ namespace SalesForceWeb.Domain.Test.Entities
         
         public Usuario(string nome,string email,string login) {
             SetLogin(login);
-            Email.SetEmail(email);
+            //Email.SetEmail(email);
             SetNome(nome);
         }
 

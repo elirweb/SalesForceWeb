@@ -12,7 +12,6 @@ namespace SalesForceWeb.Domain.Test.Entities
         public int IDUsuario { get; set; }
 
         public virtual Usuario UsuarioModel { get; set; }
-
-    
+        
     }
 }

@@ -1,22 +1,26 @@
 ﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace SalesForceWeb.Domain.Test.ValuesObject
 {
+    [TestClass]
     public class RG
     {
+        private string v;
+
         public string CodigoRG { get; set; }
-        protected RG() { }
+        public RG() { }
 
-        public RG(string RGCompleto){
+        public RG(string v)
+        {
+            this.CodigoRG = v;
+        }
 
-            try
-            {
-                CodigoRG = Convert.ToString(RGCompleto);
-            }
-            catch (Exception)
-            {
-                throw new Exception("RG inválido: " + RGCompleto);
-            }
+        [TestMethod]
+        [TestCategory("RG_EM_BRANCO")]
+        public void RG_EM_BRANCO() {
+            var rg = new RG("4545545545");
+            Assert.AreEqual("4545545545", rg.CodigoRG,"RG em Branco");
         }
 
         

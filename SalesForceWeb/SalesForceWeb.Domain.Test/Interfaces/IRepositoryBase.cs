@@ -2,13 +2,12 @@
 
 namespace SalesForceWeb.Domain.Test.Interfaces
 {
-    public interface IRepositoryBase<TEntity> where TEntity:class
+    public interface IRepositoryBase<TEntity> 
     {
-        void Add(TEntity obj);
-        TEntity GetById(int id);
-        IEnumerable<TEntity> GetAll();
-        void Update(TEntity obj);
-        void Remove(TEntity obj);
-        void Dispose();
+        bool Commit(TEntity entidade);
+        void Adcionar(TEntity entidade);
+        void Atualizar(TEntity entidade);
+        void Deletar(TEntity entidade);
+        
     }
 }

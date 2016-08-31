@@ -17,9 +17,7 @@ namespace SalesForceWeb.Repository.Repositorys
             _contexto = contexto_;
 
         }
-
         
-
         public bool CPFJaCadastrado(Cpf cpf, int usuarioid)
         {
             return _documento.Get().Any(x=>x.CPF.Codigo == cpf.Codigo && 
