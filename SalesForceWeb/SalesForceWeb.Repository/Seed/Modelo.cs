@@ -15,7 +15,8 @@ namespace SalesForceWeb.Repository.Seed
                   Nome = "Novo Fiesta",
                   IDMarca = 1,
                   DtInclusao = DateTime.Now.Date,
-                  DtAlteracao = DateTime.Now.Date
+                  DtAlteracao = DateTime.Now.Date,
+                  
               });
             
             contexto.Modelo.AddOrUpdate(

@@ -5,12 +5,13 @@ namespace SalesForceWeb.Repository.EFDataBase
 {
     public class Contexto: DbContext
     {
-        public Contexto(): base("Contexto")
+        public Contexto(): base("Contexto") 
         {
             Configuration.LazyLoadingEnabled = false;
             Configuration.ProxyCreationEnabled = false;
             
         }
+        
         public DbSet<SalesForceWeb.Domain.Entities.Usuario> Usuario {get;set;}
         public DbSet<SalesForceWeb.Domain.Entities.Documento> Documento { get; set; }
         public DbSet<SalesForceWeb.Domain.Entities.Tipo> Tipo { get; set; }
@@ -24,6 +25,7 @@ namespace SalesForceWeb.Repository.EFDataBase
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();

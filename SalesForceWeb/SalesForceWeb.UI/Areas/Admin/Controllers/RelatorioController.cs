@@ -13,5 +13,9 @@ namespace SalesForceWeb.UI.Areas.Admin.Controllers
         {
             return View();
         }
+
+        public ActionResult Veiculo() {
+            return View();
+        }
     }
 }
