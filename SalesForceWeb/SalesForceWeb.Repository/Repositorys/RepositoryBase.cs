@@ -89,5 +89,10 @@ namespace SalesForceWeb.Repository.Repositorys
             contexto.Entry(obj).State = EntityState.Modified;
 
         }
+
+        public IQueryable<TEntity> Localizar(Func<TEntity, bool> predicate)
+        {
+            return Entity.Where(predicate).AsQueryable();
+        }
     }
 }

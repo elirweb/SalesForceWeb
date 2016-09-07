@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace SalesForceWeb.Domain.Interfaces
@@ -16,5 +17,6 @@ namespace SalesForceWeb.Domain.Interfaces
         void commit();
         IQueryable<TEntity> Get();
         void AddOrUpdate(TEntity obj);
+        IQueryable<TEntity> Localizar(Func<TEntity, bool> predicate);
     }
 }

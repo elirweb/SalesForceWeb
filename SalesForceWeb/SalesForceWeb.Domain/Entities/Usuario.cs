@@ -19,7 +19,14 @@ namespace SalesForceWeb.Domain.Entities
 
         protected Usuario() { }
 
+        public Usuario(string login, string senha)
+        {
+            SetLogin(login);
+            SetSenha(senha);
+        }
+
         
+
         public Usuario(string nome,string email,string login) {
             SetLogin(login);
             Email.SetEmail(email);
@@ -40,16 +47,25 @@ namespace SalesForceWeb.Domain.Entities
         }
 
         
-        public void SetSenha(string senha, string senhaConfirmacao)
+        public void SetSenha(string senha)
         {
-         
-            Senha = CriptografiaHelper.CriptografarSenha(senha);
+             
+            Validador.ForNullOrEmptyDefaultMessage(senha, "Senha");
+            Senha = senha;
+
+            SetCriptgrafarSenha(Senha);
+        }
+
+        public string SetCriptgrafarSenha(string senha)
+        {
+            return Senha = CriptografiaHelper.CriptografarSenha(senha);
+
         }
 
         public void AlterarSenha(string senhaAtual, string novaSenha, string confirmacaoDeSenha)
         {
             ValidarSenha(senhaAtual);
-            SetSenha(novaSenha, confirmacaoDeSenha);
+            //SetSenha(novaSenha, confirmacaoDeSenha);
         }
 
         public void ValidarSenha(string senha)
@@ -67,7 +83,7 @@ namespace SalesForceWeb.Domain.Entities
         {
             if (!TokenAlteracaoDeSenha.Equals(token))
                 throw new Exception("token para alteração de senha inválido!");
-            SetSenha(novaSenha, confirmacaoDeSenha);
+            //SetSenha(novaSenha, confirmacaoDeSenha);
             GerarNovoTokenAlterarSenha();
         }
 
