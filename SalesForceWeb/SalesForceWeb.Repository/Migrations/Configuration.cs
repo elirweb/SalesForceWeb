@@ -19,12 +19,10 @@ namespace SalesForceWeb.Repository.Migrations
             //Marca.MarcaSeed(context);
             //Modelo.ModeloSeed(context);
 
-            //context.Tipo.AddOrUpdate(new Domain.Entities.Tipo { Id = 2, TipoVeiculo = "Moto", DtInclusao = DateTime.Now, DtAlteracao = DateTime.Now });
-            //context.Tipo.AddOrUpdate(new Domain.Entities.Tipo { Id = 3, TipoVeiculo = "Caminhão", DtInclusao = DateTime.Now, DtAlteracao = DateTime.Now });
-
-            context.veiculo.AddOrUpdate(new Domain.Entities.Veiculo { Id = 3, CodigoModelo = 1, CodigoTipo = 2, Ano = DateTime.Now.Year.ToString(), Cor = "Amarelo", Placa = "XTR-9305", Renavam = "30250403", DtInclusao = DateTime.Now, DtAlteracao = DateTime.Now    });
-            context.veiculo.AddOrUpdate(new Domain.Entities.Veiculo { Id = 4, CodigoModelo = 3, CodigoTipo = 3, Ano = DateTime.Now.Year.ToString(), Cor = "Cinza", Placa = "VQR-0103", Renavam = "8912349430", DtInclusao = DateTime.Now, DtAlteracao = DateTime.Now });
-
+            //context.veiculo.AddOrUpdate(new Domain.Entities.Veiculo { Id = 3, CodigoModelo = 1, CodigoTipo = 2, Ano = DateTime.Now.Year.ToString(), Cor = "Amarelo", Placa = "XTR-9305", Renavam = "30250403", DtInclusao = DateTime.Now, DtAlteracao = DateTime.Now    });
+            //context.veiculo.AddOrUpdate(new Domain.Entities.Veiculo { Id = 4, CodigoModelo = 3, CodigoTipo = 3, Ano = DateTime.Now.Year.ToString(), Cor = "Cinza", Placa = "VQR-0103", Renavam = "8912349430", DtInclusao = DateTime.Now, DtAlteracao = DateTime.Now });
+            
+            
         }
     }
 }

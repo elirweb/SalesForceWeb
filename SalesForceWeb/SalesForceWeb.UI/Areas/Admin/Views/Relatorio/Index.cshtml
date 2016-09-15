@@ -7,29 +7,27 @@
 <script src="@Url.Content("~/Areas/Admin/Content/js/angular/angular.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Areas/Admin/Content/js/angular/service.js")" type="text/javascript"></script>
 
-
 <script language="javascript">
     $("body").removeAttr('id', 'login-bg');
 </script>
-<div id="page-top-outer">
+<div id="page-top-outer" ng-controller="veiculoscontroller" >
     <div id="page-top">
         <div id="logo">
             <a href=""><img src="~/Areas/Admin/Content/images/shared/logo.png" width="156" height="40" alt="" /></a>
         </div>
-        <div id="top-search">
-            <table border="0" cellpadding="0" cellspacing="0">
+        <div id="top-search" >
+            <table border="0" cellpadding="0" cellspacing="0"  >
                 <tr>
-                    <td><input type="text" value="Pesquisar..." onblur="if (this.value=='') { this.value='Search'; }" onfocus="if (this.value=='Search') { this.value=''; }" class="top-search-inp" /></td>
                     <td>
-                        <select class="styledselect">
-                            <option value=""> Todos</option>
-                            <option value=""> Marca</option>
-                            <option value=""> Modelo</option>
-                            <option value="">Veiculo</option>
+                        <select name="tp_pesquisa" id="tp_pesquisa"  ng-model="pesqtipo" ng-change="PesquisarPorTipo(pesqtipo)" class="styledselect"  >
+                            <option ng-repeat="item in listaitem" value="{{item.id}}">{{item.name}}</option>
                         </select>
                     </td>
                     <td>
-                        <input type="image" src="~/Areas/Admin/Content/images/shared/top_search_btn.gif" />
+                        <input type="text" name="txtcampopesq" id="txtcampopesq" value="" onblur="if (this.value=='') { this.value='Search'; }" onfocus="if (this.value=='Search') { this.value=''; }" class="top-search-inp" />
+                    </td>
+                    <td>
+                        <input type="button" value="Pesquisar" ng-click="Localizar()">
                     </td>
                 </tr>
             </table>
@@ -113,7 +111,7 @@
     <div id="content">
 
         <div id="page-heading">
-            <h1>Veiculos</h1>
+            <h1>Veiculos <span style="color:#ff0000;text-align:center;">{{informacao_consulta}}</span></h1>
         </div>
 
         <table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
@@ -174,7 +172,7 @@
                                         <th class="table-header-repeat line-left"><a href="">Cor</a></th>
                                         <th class="table-header-options line-left"><a href="">Data</a></th>
                                     </tr>
-                                    <tbody ng-app="myapp" ng-controller="veiculoscontroller">
+                                    <tbody  ng-controller="veiculoscontroller">
                                         <tr ng-repeat="veiculo in result">
                                             <td><input type="checkbox" /></td>
                                             <td>{{veiculo.tipoVeiculo }}</td>
@@ -183,13 +181,10 @@
                                             <td>{{veiculo.placa}}</td>
                                             <td><a href="">{{veiculo.cor}}</a></td>
                                             <td class="options-width">
-                                             {{veiculo.dtInclusao | date: "dd.MM.yy" }} <!-- filtro do angular --> 
+                                                {{veiculo.dtInclusao | date: "dd.MM.yy" }} <!-- filtro do angular -->
                                             </td>
                                         </tr>
-
                                     </tbody>
-                                    
-                                 
                                 </table>
                                 <!--  end product-table................................... -->
                             </form>

@@ -11,7 +11,7 @@ using SalesForceWeb.Repository.Repositorys;
 
 namespace SalesForceWeb.Api.Controllers
 {
-    [RoutePrefix("sales")]
+    [RoutePrefix("sales/Veiculo")]
 
     [EnableCors(origins: "*", headers: "*", methods: "*")] // definindo o cabecalho de origens para receber metodo get 
     
@@ -95,6 +95,32 @@ namespace SalesForceWeb.Api.Controllers
                            ).ToList().Where(c=>c.MarcaCarro.Equals(nomemarca));
             return selecao.AsQueryable().OrderBy(c=>c.MarcaCarro);
         }
+
+        [AcceptVerbs("GET")]
+        [Route("PeloTipo/{tipo}")]
+        public IEnumerable<Object> PeloTipo(string tipo) {
+
+            var contexto_ = new Contexto();
+
+            var selecao = (from tp in contexto_.Tipo
+                           from vc in contexto_.veiculo.Where(vc => vc.CodigoTipo == tp.Id).DefaultIfEmpty()
+                           from mod in contexto_.Modelo.Where(mod => mod.Id == vc.CodigoModelo).DefaultIfEmpty()
+                           from mc in contexto_.Marca.Where(mc => mc.Id == mod.IDMarca).DefaultIfEmpty()
+                           select new
+                           {
+                               tp.TipoVeiculo,
+                               vc.Cor,
+                               vc.Placa,
+                               NomeCarro = mod.Nome, // para não dar duplicidade nos valores 
+                               MarcaCarro = mc.Nome,
+                               vc.DtInclusao
+                           }
+                           ).ToList().Where(c => c.TipoVeiculo.Equals(tipo));
+            return selecao.AsQueryable().OrderBy(c => c.TipoVeiculo);
+
+        }
+
+
 
         [HttpPost]
         [Route("Cadastrar")]

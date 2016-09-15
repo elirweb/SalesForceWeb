@@ -75,6 +75,10 @@
     <Compile Include="Migrations\201609020218501_SalesForceWeb3.Designer.cs">
       <DependentUpon>201609020218501_SalesForceWeb3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609140250213_salesforceweb.cs" />
+    <Compile Include="Migrations\201609140250213_salesforceweb.Designer.cs">
+      <DependentUpon>201609140250213_salesforceweb.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorys\RepositoryBase.cs" />
@@ -112,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609020218501_SalesForceWeb3.resx">
       <DependentUpon>201609020218501_SalesForceWeb3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609140250213_salesforceweb.resx">
+      <DependentUpon>201609140250213_salesforceweb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
