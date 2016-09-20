@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SalesForceWeb.Domain.Base;
 
 namespace SalesForceWeb.Domain.Interfaces
 {
-    public interface IRepositoryBase<TEntity> where TEntity: Base.EntidadeBase
+    public interface IRepositoryBase<TEntity> where TEntity: EntidadeBase
     {
 
         // todos que herdem da Base.EntidadeBase vão poder usar o Irepository

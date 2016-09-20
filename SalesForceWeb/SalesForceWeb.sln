@@ -27,6 +27,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesForceWeb.Api", "SalesF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesForceWeb.UI", "SalesForceWeb.UI\SalesForceWeb.UI.csproj", "{4DD8D4AB-3C38-4C2B-BEC0-11C02521C91E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workflow", "Workflow", "{52A69FB8-01CD-4F14-B2B8-132D5FBE6B48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesForceWeb.Workflow", "SalesForceWeb.Workflow\SalesForceWeb.Workflow.csproj", "{3EA5E76C-77E3-4D9C-AE90-834D937F26E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +65,10 @@ Global
 		{4DD8D4AB-3C38-4C2B-BEC0-11C02521C91E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DD8D4AB-3C38-4C2B-BEC0-11C02521C91E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DD8D4AB-3C38-4C2B-BEC0-11C02521C91E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EA5E76C-77E3-4D9C-AE90-834D937F26E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EA5E76C-77E3-4D9C-AE90-834D937F26E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EA5E76C-77E3-4D9C-AE90-834D937F26E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EA5E76C-77E3-4D9C-AE90-834D937F26E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,5 +81,6 @@ Global
 		{387A82A3-DE41-4005-9E91-BDC1B76125EA} = {298DC627-7261-4D26-9494-2E9AD599DE68}
 		{4BFD7048-06D3-4D40-8941-FB6B5DFAF9DC} = {2F132097-CB8B-42F4-81B5-F8A61F5DA0F9}
 		{4DD8D4AB-3C38-4C2B-BEC0-11C02521C91E} = {6F7D7075-46B0-4DA7-B2DC-9C836028A138}
+		{3EA5E76C-77E3-4D9C-AE90-834D937F26E2} = {52A69FB8-01CD-4F14-B2B8-132D5FBE6B48}
 	EndGlobalSection
 EndGlobal

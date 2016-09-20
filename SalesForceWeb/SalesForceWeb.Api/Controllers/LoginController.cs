@@ -1,12 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using SalesForceWeb.Domain.Entities;
 using SalesForceWeb.Repository.EFDataBase;
 using SalesForceWeb.Repository.Repositorys;
+using SalesForceWeb.Workflow;
 
 namespace SalesForceWeb.Api.Controllers
 {
@@ -25,30 +25,45 @@ namespace SalesForceWeb.Api.Controllers
 
         [AcceptVerbs("GET")]
         [Route("AuthenticarUsuario/{login}/{senha}")]
-        public HttpResponseMessage VerificarUsuario(string login, string senha) {
+        public IEnumerable<Usuario> VerificarUsuario(string login, string senha) {
 
             var contexto = new Contexto();
 
-            var cad = new Usuario();
-            if (string.IsNullOrEmpty(login) && string.IsNullOrEmpty(senha))
-                return Request.CreateResponse<Usuario>(HttpStatusCode.BadRequest, cad);
-            else {
-                    try
-                    {
-                        var dados = from p in contexto.Usuario.Where(p => p.Login.Equals(login) && 
-                                p.Senha.Equals(senha))
-                                select p;
-                    if (dados == null)
-                        return Request.CreateResponse<Usuario>(HttpStatusCode.BadRequest, cad);
-                    else
-                        return Request.CreateResponse<Usuario>(HttpStatusCode.OK, cad);
-                }
-                catch (Exception)
-                    {
-                        return Request.CreateResponse<Usuario>(HttpStatusCode.InternalServerError, cad);
-
-                    }
-            }
+            var dados = from p in contexto.Usuario.Where(p => p.Login.Equals(login) &&
+                    p.Senha.Equals(senha))
+                        select p;
+            return dados.AsEnumerable();
         }
+
+        [AcceptVerbs("GET")]
+        [Route("Buscar/{valor}/email")]
+        public IEnumerable<Usuario> Email(string valor)
+        {
+            EmailUsuario email_usuario = new EmailUsuario();
+            // criando o token de authenticação Guid.NewGuid().ToString()
+            var token = Guid.NewGuid().ToString();
+            Usuario user = new Usuario();
+            var dados = _usuario.Localizar(x => x.Email.Endereco.Equals(valor.Trim()));
+            if (dados != null)
+            {
+                foreach (var info in dados) {
+                    user.Login = info.Login; 
+                }
+                GravarAlteracoes(user.Login, token);
+                email_usuario.Email(valor,token);
+            }
+            return dados.AsEnumerable();
+        }
+
+        public void GravarAlteracoes(string login,string token) {
+            
+            Usuario user = new Usuario();
+            user.Login = login;
+            user.TokenAlteracaoDeSenha = token;
+           
+            _usuario.Update(user);
+            _usuario.commit(); 
+        }
+
     }
 }

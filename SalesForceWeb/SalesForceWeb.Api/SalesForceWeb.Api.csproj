@@ -224,9 +224,17 @@
       <Project>{a7042cc6-213c-4e05-912f-fc22d1b3c06c}</Project>
       <Name>SalesForceWeb.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SalesForceWeb.Helper\SalesForceWeb.Helper.csproj">
+      <Project>{5ff1d4c4-4085-4548-873c-047323ef2f4b}</Project>
+      <Name>SalesForceWeb.Helper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SalesForceWeb.Repository\SalesForceWeb.Repository.csproj">
       <Project>{26a6183e-1eb2-4d84-86f7-2cc852e2c648}</Project>
       <Name>SalesForceWeb.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SalesForceWeb.Workflow\SalesForceWeb.Workflow.csproj">
+      <Project>{3ea5e76c-77e3-4d9c-ae90-834d937f26e2}</Project>
+      <Name>SalesForceWeb.Workflow</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

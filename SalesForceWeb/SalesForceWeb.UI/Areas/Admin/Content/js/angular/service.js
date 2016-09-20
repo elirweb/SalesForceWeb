@@ -1,4 +1,5 @@
 ﻿'use strict'
+
 var myapp = angular.module('myapp', []);
 
 // trazendo uma lista de veiculos,renavam,tipo,data
