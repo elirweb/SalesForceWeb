@@ -85,13 +85,8 @@ namespace SalesForceWeb.Repository.Repositorys
 
         public  void Update(TEntity obj)
         {
-
-           //obj.DtAlteracao = DateTime.Now;
-
-            
-           //contexto.Set<TEntity>().Attach(obj);
+           obj.DtAlteracao = DateTime.Now;
            contexto.Entry(obj).State = EntityState.Modified;
-           
         }
 
         public IQueryable<TEntity> Localizar(Func<TEntity, bool> predicate)

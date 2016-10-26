@@ -39,8 +39,7 @@ namespace SalesForceWeb.Repository.EFDataBase
             modelBuilder.Configurations.Add(new EntityTypeConfigurations.ItensConfiguration());
             modelBuilder.Configurations.Add(new EntityTypeConfigurations.EnderecoConfiguration());
             modelBuilder.Configurations.Add(new EntityTypeConfigurations.MarcaConfiguration());
-
-            
+            modelBuilder.ComplexType<SalesForceWeb.Domain.ValuesObject.Email>();
         }
     }
 }

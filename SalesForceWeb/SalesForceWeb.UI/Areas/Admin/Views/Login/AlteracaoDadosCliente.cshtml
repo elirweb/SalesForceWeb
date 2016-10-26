@@ -1,7 +1,9 @@
 ﻿
 @{
-    ViewBag.Title = "AlteracaoDadosCliente";
+    ViewBag.Title = "Alteração dados cliente";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+    
 }
 
 @model SalesForceWeb.Domain.Entities.Usuario
@@ -36,22 +38,9 @@
 
             <div class="account-content">
                 <div class="account-drop-inner">
-                    <a href="" id="acc-settings">Settings</a>
-                    <div class="clear">&nbsp;</div>
-                    <div class="acc-line">&nbsp;</div>
-                    <a href="" id="acc-details">Personal details </a>
-                    <div class="clear">&nbsp;</div>
-                    <div class="acc-line">&nbsp;</div>
-                    <a href="" id="acc-project">Project details</a>
-                    <div class="clear">&nbsp;</div>
-                    <div class="acc-line">&nbsp;</div>
-                    <a href="" id="acc-inbox">Inbox</a>
-                    <div class="clear">&nbsp;</div>
-                    <div class="acc-line">&nbsp;</div>
-                    <a href="" id="acc-stats">Statistics</a>
+                    <a href="/Admin/Login/AlteracaoDadosCliente" id="acc-settings">Minha Conta</a>
                 </div>
             </div>
-
         </div>
         <div class="nav">
             <div class="table">
@@ -134,7 +123,48 @@
                                     </tr>
                                 </table>
                             </div>
-                           <!-- fazer o formulario do usuario  -->
+                            <!-- fazer o formulario do usuario  -->
+                            @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "FormAltUsuario", ng_app = "myapp", ng_controller = "logincontroller" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <table cellspacing="0"    cellpadding="0" width="50%" style="margin:0 auto;" id="product-table">
+                                    
+                                    <tr>
+                                        <td>@Html.LabelFor(model => model.Nome)</td>
+                                        <td><input type="text" name="nome_alteracao" id="nome_alteracao" ng-model="formusuario.nome" required="required" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>@Html.LabelFor(model => model.SobreNome)</td>
+                                        <td><input type="text" name="sobrenome_altearacao" id="sobrenome_alteracao" ng-model="formusuario.sobrenome" required="required" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>@Html.LabelFor(model => model.Sexo)</td> <!-- falta colocar o sexo vindo do angular-->>
+                                        <td>@Html.TextBoxFor(model => model.Sexo, new { ng_model= "formusuario.sexo", required="required" })</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>@Html.LabelFor(model => model.Idade)</td>
+                                        <td><input type="text" name="idade_alteracao" id="idade_alteracao" ng-model="formusuario.idade" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>@Html.LabelFor(model => model.Email)</td>
+                                        <td><input type="text" name="email" id="email" ng-model="formusuario.email.endereco" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>@Html.LabelFor(model => model.Login)</td>
+                                        <td><input type="text" name="login_alteracao" id="login_alteracao" ng-model="formusuario.login" required="required" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>@Html.LabelFor(model => model.Senha)</td>
+                                        <td>@Html.TextBoxFor(model => model.Senha , new {ng_model= "formusuario.senha", required="required" })</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <input type="button" ng-click="Limpar()" value="Limpar" />&nbsp;&nbsp;
+                                            <input type="button" value="Enviar" ng-click="AlterarUsuario()" ng-disabled="FormAltUsuario.$invalid" /></td>
+                                    </tr>
+                                </table>
+                            }
                         </div>
 
                         <div class="clear"></div>
@@ -149,6 +179,7 @@
                 <th class="sized bottomright"></th>
             </tr>
         </table>
+
         <div class="clear">&nbsp;</div>
 
     </div>

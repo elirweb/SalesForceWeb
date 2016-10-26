@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using SalesForceWeb.Domain.Entities;
@@ -10,10 +12,11 @@ using SalesForceWeb.Workflow;
 
 namespace SalesForceWeb.Api.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")] // definindo o cabecalho de origens para receber metodo get 
-
     [RoutePrefix("sales/Login")]
 
+    [EnableCors(origins: "*", headers: "*", methods: "*")] // definindo o cabecalho de origens para receber metodo get 
+
+   
     public class LoginController : ApiController
     {
         private readonly RepositoryUsuario _usuario;
@@ -43,27 +46,45 @@ namespace SalesForceWeb.Api.Controllers
             // criando o token de authenticação Guid.NewGuid().ToString()
             var token = Guid.NewGuid().ToString();
             Usuario user = new Usuario();
+
             var dados = _usuario.Localizar(x => x.Email.Endereco.Equals(valor.Trim()));
             if (dados != null)
             {
                 foreach (var info in dados) {
-                    user.Login = info.Login; 
+                    user.Id = info.Id; 
                 }
-                GravarAlteracoes(user.Login, token);
-                email_usuario.Email(valor,token);
+                
+                email_usuario.Email(valor,token + "|" + user.Id);
             }
             return dados.AsEnumerable();
         }
 
-        public void GravarAlteracoes(string login,string token) {
-            
-            Usuario user = new Usuario();
-            user.Login = login;
-            user.TokenAlteracaoDeSenha = token;
-           
-            _usuario.Update(user);
-            _usuario.commit(); 
+        [HttpPost]
+        [Route("AtualizarSenha")]
+        public HttpResponseMessage AtualizarSenha(Usuario user) {
+            Contexto db = new Contexto();
+            if (user == null)
+                return Request.CreateResponse<Usuario>(HttpStatusCode.BadRequest, user);
+            else
+            {
+                try
+                {
+
+                    user.Email = 
+                        new Domain.ValuesObject.Email(user.Email.Endereco); // "elirweb@gmail.com" email chumbado
+                    // erro alterando a data de inclusao na alteracao de dados o certo e alterar apenas a data de alteracao 
+                    _usuario.AddOrUpdate(user);
+                    _usuario.commit();
+                      var resposta = user;
+                    return Request.CreateResponse<Usuario>(HttpStatusCode.OK, resposta);
+                }
+                catch (Exception f)
+                {
+                    throw new Exception(f.Message);
+                }
+            }
         }
 
+         
     }
 }

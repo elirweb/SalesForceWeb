@@ -302,8 +302,8 @@
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Relatorio\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Relatorio\Veiculo.cshtml" />
-    <Content Include="Areas\Admin\Views\Relatorio\AlteracaoDadosCliente.cshtml" />
     <Content Include="Areas\Admin\Views\Login\RedefinirSenha.cshtml" />
+    <Content Include="Areas\Admin\Views\Login\AlteracaoDadosCliente.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

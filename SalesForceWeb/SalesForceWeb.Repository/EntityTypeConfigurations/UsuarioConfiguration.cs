@@ -16,8 +16,8 @@ namespace SalesForceWeb.Repository.EntityTypeConfigurations
             Property(c => c.SobreNome).HasColumnType("VARCHAR").HasMaxLength(50);
             Property(c => c.Sexo).HasColumnType("VARCHAR").HasMaxLength(10);
             Property(c => c.Idade).HasColumnType("VARCHAR").HasMaxLength(4);
-            Property(c => c.Email.Endereco).HasColumnType("VARCHAR").HasMaxLength(100);
-
+            Property(c => c.Email.Endereco).HasColumnType("VARCHAR").HasMaxLength(100).HasColumnName("Email")
+                ;
             
             Property(c => c.Senha).HasColumnType("VARCHAR").HasMaxLength(300);
 

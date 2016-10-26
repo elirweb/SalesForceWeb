@@ -36,7 +36,7 @@ namespace SalesForceWeb.Workflow
                 mainhead.Append(" <body > ");
                 mainhead.Append(" <b>Assunto:</b> <br />");
                 mainhead.Append("Seja bem vindo ao Sales Force Web<br />");
-                mainhead.Append("Click <a href=\"http://localhost:61206/Admin/Login/RedefinirSenha?t="+token_acesso+"\">aqui</a> para redefinir senha de acesso<br />");
+                mainhead.Append("Click <a href=\"http://localhost:61206/Admin/Login/RedefinirSenha?t="+token_acesso+"&email="+_email+ "\">aqui</a> para redefinir senha de acesso<br />");
                 mainhead.Append(" </body> ");
                 mainhead.Append(" </html> ");
 
