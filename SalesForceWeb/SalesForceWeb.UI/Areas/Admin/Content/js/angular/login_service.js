@@ -39,5 +39,11 @@ myapp.controller('logincontroller' ,['$scope','$http', '$location', function ($s
         });
     };
     
-    
+    // lista de itens
+    $scope.listaSexo = [
+        { id: 0, name: "Selecione" },
+        { id: 1, name: "Masculino" },
+        { id: 2, name: "Feminino" }
+    ];
+
 }]);

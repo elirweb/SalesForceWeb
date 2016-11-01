@@ -9,7 +9,7 @@ using SalesForceWeb.Repository.Repositorys;
 
 namespace SalesForceWeb.Api.Controllers
 {
-    [RoutePrefix("sales")]
+    [RoutePrefix("sales/Veiculo")]
     public class TipoController : ApiController
     {
         private readonly RepositoryTipo _tipo;

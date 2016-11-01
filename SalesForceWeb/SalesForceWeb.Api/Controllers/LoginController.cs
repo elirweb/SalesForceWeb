@@ -85,6 +85,14 @@ namespace SalesForceWeb.Api.Controllers
             }
         }
 
-         
+        [AcceptVerbs("GET")]
+        [Route("DadosUsuario/{idusuario}")]
+        public IEnumerable<Usuario> DadosUsuario(int idusuario) {
+            Usuario users = new Usuario();
+            var dados = _usuario.Localizar(p => p.Id == idusuario);
+                return dados.AsEnumerable();
+            
+        }
+
     }
 }

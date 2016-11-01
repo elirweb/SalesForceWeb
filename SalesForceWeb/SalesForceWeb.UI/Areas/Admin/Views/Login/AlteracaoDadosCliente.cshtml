@@ -6,7 +6,9 @@
     
 }
 
-@model SalesForceWeb.Domain.Entities.Usuario
+@model IEnumerable<SalesForceWeb.Domain.Entities.Usuario>
+<script src="~/Areas/Admin/Content/js/angular/angular.min.js"></script>
+<script src="~/Areas/Admin/Content/js/angular/login_service.js"></script>
 
 <script language="javascript">
     $("body").removeAttr('id', 'login-bg');
@@ -127,42 +129,53 @@
                             @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "FormAltUsuario", ng_app = "myapp", ng_controller = "logincontroller" }))
                             {
                                 @Html.AntiForgeryToken()
-                                <table cellspacing="0"    cellpadding="0" width="50%" style="margin:0 auto;" id="product-table">
-                                    
-                                    <tr>
-                                        <td>@Html.LabelFor(model => model.Nome)</td>
-                                        <td><input type="text" name="nome_alteracao" id="nome_alteracao" ng-model="formusuario.nome" required="required" /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>@Html.LabelFor(model => model.SobreNome)</td>
-                                        <td><input type="text" name="sobrenome_altearacao" id="sobrenome_alteracao" ng-model="formusuario.sobrenome" required="required" /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>@Html.LabelFor(model => model.Sexo)</td> <!-- falta colocar o sexo vindo do angular-->>
-                                        <td>@Html.TextBoxFor(model => model.Sexo, new { ng_model= "formusuario.sexo", required="required" })</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>@Html.LabelFor(model => model.Idade)</td>
-                                        <td><input type="text" name="idade_alteracao" id="idade_alteracao" ng-model="formusuario.idade" /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>@Html.LabelFor(model => model.Email)</td>
-                                        <td><input type="text" name="email" id="email" ng-model="formusuario.email.endereco" /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>@Html.LabelFor(model => model.Login)</td>
-                                        <td><input type="text" name="login_alteracao" id="login_alteracao" ng-model="formusuario.login" required="required" /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>@Html.LabelFor(model => model.Senha)</td>
-                                        <td>@Html.TextBoxFor(model => model.Senha , new {ng_model= "formusuario.senha", required="required" })</td>
-                                    </tr>
+                                <table cellspacing="0" cellpadding="0" width="50%" style="margin:0 auto;" id="product-table">
+                                   <!--fazer foreach nos dados vindo do banco-->
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>Nome</td>
+                                            <td><input type="text" name="nome_alteracao" id="nome_alteracao" value="@item.Nome" ng-model="formusuario.nome" required="required" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>SobreNome</td>
+                                            <td><input type="text" name="sobrenome_altearacao" id="sobrenome_alteracao" ng-model="formusuario.sobrenome" value="@item.SobreNome" required="required" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sexo</td> <!-- falta colocar o sexo vindo do angular-->
+                                            <td>
+                                                <select name="sexoid" id="sexoid" ng-model="formusuario.sexo">
+                                                    <option ng-repeat="tipos in listaSexo" value="{{tipos.id}}">{{tipos.name}}</option>
+                                                </select>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Idade</td>
+                                            <td><input type="text" name="idade_alteracao" id="idade_alteracao" ng-model="formusuario.idade" required="required" value="@item.Idade" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email</td>
+                                            <td>         
+                                                <input type="text" name="email" id="email" ng-model="formusuario.email.endereco" value="@ViewBag.semail" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Usuario</td>
+                                            <td><input type="text" name="login_alteracao" id="login_alteracao" ng-model="formusuario.login" required="required" value="@item.Login" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Senha</td>
+                                            <td><input type="text" name="senha_alteracao" id="senha_alteracao" ng-model="formusuario.login" required="required" value="@item.Senha" /></td>
+                                        </tr>
+                                    }
+
                                     <tr>
                                         <td colspan="2">
                                             <input type="button" ng-click="Limpar()" value="Limpar" />&nbsp;&nbsp;
                                             <input type="button" value="Enviar" ng-click="AlterarUsuario()" ng-disabled="FormAltUsuario.$invalid" /></td>
                                     </tr>
+                                    
                                 </table>
                             }
                         </div>
