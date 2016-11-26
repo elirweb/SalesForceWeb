@@ -46,4 +46,17 @@ myapp.controller('logincontroller' ,['$scope','$http', '$location', function ($s
         { id: 2, name: "Feminino" }
     ];
 
+    $scope.AlterarUsuario = function () {
+        $http({
+            url: 'http://localhost:61154/sales/Login/AtualizarSenha',
+            method: 'POST',
+            headers: { 'Content': 'application/json;' },
+            data: $scope.formusuario
+        })
+        .success(function (data) {
+            $scope.mensagem = "Senha alterada com sucesso";
+            window.location = "/Admin/Relatorio";
+
+        });
+    };
 }]);

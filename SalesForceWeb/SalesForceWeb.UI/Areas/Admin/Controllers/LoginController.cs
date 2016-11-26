@@ -117,9 +117,10 @@ namespace SalesForceWeb.UI.Areas.Admin.Controllers
                                     break;
                                 case "email":   
                                     ViewBag.semail = vlemail.EmailJson("[" + prop.Value.ToString() + "]");
-                                    
                                     break;
-                                    
+                                case "id":
+                                    dados.Id = Convert.ToInt32( prop.Value.ToString());
+                                    break; 
                                 default:
                                     break;
                             }
