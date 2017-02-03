@@ -45,7 +45,7 @@ myapp.controller('logincontroller' ,['$scope','$http', '$location', function ($s
         { id: 1, name: "Masculino" },
         { id: 2, name: "Feminino" }
     ];
-
+   
     $scope.AlterarUsuario = function () {
         $http({
             url: 'http://localhost:61154/sales/Login/AtualizarSenha',
@@ -56,6 +56,51 @@ myapp.controller('logincontroller' ,['$scope','$http', '$location', function ($s
         .success(function (data) {
             $scope.mensagem = "Senha alterada com sucesso";
             window.location = "/Admin/Relatorio";
+
+        });
+    };
+
+
+    $scope.AlterarDadosUsuario = function () {
+        $http({
+            url: 'http://localhost:61154/sales/Login/AtualizarSenha',
+            method: 'POST',
+            headers: { 'Content': 'application/json;' },
+            data: $scope.formusuario
+        })
+        .success(function (data) {
+            $scope.mensagem = "Dados Alterados com sucesso";
+            //window.location = "/Admin/Login/DocumentoCliente";
+            
+        });
+    };
+
+    $scope.AlterarDocumento = function () {
+        $http({
+            url: 'http://localhost:61154/sales/Login/AtualizarDocumento',
+            method: 'POST',
+            headers: { 'Content': 'application/json;' },
+            data: $scope.formusuario
+
+        })
+        .success(function (data) {
+            $scope.mensagem = "Dados Alterados com sucesso";
+
+        });
+
+   
+    };
+
+
+    $scope.AlterarUsuarioEndereco = function () {
+        $http({
+            url: 'http://localhost:61154/sales/Login/AtualizarEndereco',
+            method: 'POST',
+            headers: { 'Content': 'application/json;' },
+            data: $scope.formusuario
+        })
+        .success(function (data) {
+            $scope.mensagem = "Dados Alterados com sucesso";
 
         });
     };

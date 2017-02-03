@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace SalesForceWeb.Domain.ValuesObject
 {
     public class Cpf
     {
-        public string Codigo { get; private set; }
+        public string Codigo { get;  set; }
 
-        protected Cpf() { }
+        public Cpf() { }
 
 
         public Cpf(string cpf)
@@ -79,5 +80,28 @@ namespace SalesForceWeb.Domain.ValuesObject
             digito = digito + resto;
             return cpf.EndsWith(digito);
         }
+
+        public string CodigoCPF(string v)
+        {
+            var resultado = v;
+            JArray usuarioarrray = JArray.Parse(v);
+            foreach (JObject obj in usuarioarrray.Children<JObject>())
+            {
+                foreach (JProperty prop in obj.Properties())
+                {
+                    switch (prop.Name)
+                    {
+                        case "codigo":
+                            v = prop.Value.ToString();
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+            return Codigo = v;
+        }
+
+        
     }
 }

@@ -1,12 +1,12 @@
 ﻿
 @{
-    ViewBag.Title = "Alteração dados cliente";
+    ViewBag.Title = "EnderecoCliente";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 
-    
 }
 
-@model IEnumerable<SalesForceWeb.Domain.Entities.Usuario>
+
+@model IEnumerable<SalesForceWeb.Domain.Entities.Endereco>
 
 <script src="@Url.Content("~/Areas/Admin/Content/js/angular/angular.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Areas/Admin/Content/js/angular/login_service.js")" type="text/javascript"></script>
@@ -79,7 +79,7 @@
     <div id="content">
 
         <div id="page-heading">
-            <h1>Alterar Dados Cadastrado</h1>
+            <h1>Alterar Dados Endereço</h1>
         </div>
 
         <table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
@@ -130,63 +130,49 @@
                                 </table>
                             </div>
                             <!-- fazer o formulario do usuario  -->
-                            @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "FormAltUsuario",  ng_controller = "logincontroller" }))
+                            @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "FormAltUsuario", ng_controller = "logincontroller" }))
                             {
                                 @Html.AntiForgeryToken()
                                 <table cellspacing="0" cellpadding="0" width="50%" style="margin:0 auto;" id="product-table">
-                                   <tr>
-                                       <td colspan="2"><span style="text-align:center">{{mensagem}}</span></td>
-                                   </tr>
+                                    <tr>
+                                        <td colspan="2">{{mensagem}}</td>
+                                    </tr>
                                     <!--fazer foreach nos dados vindo do banco-->
                                     @foreach (var item in Model)
                                     {
-                                        <tr>
-                                            <input type="hidden" id="tokenAlteracaoDeSenha1" name="tokenAlteracaoDeSenha1" ng-model="formusuario.tokenAlteracaoDeSenha" ng-init="formusuario.tokenAlteracaoDeSenha='@Guid.NewGuid().ToString()'" />
-                                            <td><input type="hidden" name="hora" id="hora" ng-model="formusuario.hora" ng-init="formusuario.hora='@DateTime.Now.ToShortTimeString()'" /></td>
-                                            <td><input type="hidden" name="id" id="id"   ng-model="formusuario.id" ng-init="formusuario.id='@item.Id'"  /></td>
+                                        <tr><td>
+                                            <input type="hidden" name="id" id="id" ng-model="formusuario.id" ng-init="formusuario.id='@item.Id'" />
+                                            <input type="hidden" name="idusuario" id="idusuario" ng-model="formusuario.idUsuario" ng-init="formusuario.idUsuario=@Convert.ToString(Session["IdUsuario"])" />
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td>Nome</td>
-                                            <td><input type="text" name="nome_alteracao" id="nome_alteracao"   ng-model="formusuario.nome" ng-init="formusuario.nome='@item.Nome'" required="required" /></td>
+                                            <td>Número</td>
+                                            <td><input type="text" name="numero" id="numero" ng-model="formusuario.numero" ng-init="formusuario.numero='@item.Numero'" required="required" /></td>
                                         </tr>
                                         <tr>
-                                            <td>SobreNome</td>
-                                            <td><input type="text" name="sobrenome_altearacao" id="sobrenome_alteracao" ng-model="formusuario.sobrenome" ng-init="formusuario.sobrenome='@item.SobreNome'"  required="required" /></td>
+                                            <td>Cidade</td>
+                                            <td><input type="text" name="cidade" id="cidade" ng-model="formusuario.cidade" ng-init="formusuario.cidade='@item.Cidade'" required="required" /></td>
                                         </tr>
+
                                         <tr>
-                                            <td>Sexo</td> 
+                                            <td>UF</td>
                                             <td>
-                                                <select name="sexoid" id="sexoid" ng-model="formusuario.sexo">
-                                                    <option ng-repeat="tipos in listaSexo" value="{{tipos.id}}" ng-init="formusuario.sexo='@item.Sexo'">{{tipos.name}}</option>
+                                                <select ng-model="formusuario.uf" id="uf" name="uf" ng-init="formusuario.uf='@item.Uf'" >
+                                                @foreach (var s in Enum.GetValues(typeof(SalesForceWeb.Domain.Enum.Uf))) {
+                                                        <option value="@s">@s</option>
+                                                }
                                                 </select>
                                             </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Idade</td>
-                                            <td><input type="text" name="idade_alteracao" id="idade_alteracao" ng-model="formusuario.idade" ng-init="formusuario.idade='@item.Idade'" required="required"  /></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Email</td>
-                                            <td>         
-                                                <input type="text" name="email" id="email" ng-model="formusuario.email.endereco" ng-init="formusuario.email.endereco='@ViewBag.semail'"  />
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Usuario</td>
-                                            <td><input type="text" name="login_alteracao" id="login_alteracao" ng-model="formusuario.login" ng-init="formusuario.login='@item.Login'" required="required"  /></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Senha</td>
-                                            <td><input type="text" name="senha_alteracao" id="senha_alteracao" ng-model="formusuario.senha" ng-init="formusuario.senha='@item.Senha'" required="required"  /></td>
                                         </tr>
                                     }
 
                                     <tr>
                                         <td colspan="2">
                                             <input type="button" ng-click="Limpar()" value="Limpar" />&nbsp;&nbsp;
-                                            <input type="button" value="Enviar" ng-click="AlterarDadosUsuario();"  /></td>
+                                            <input type="button" value="Enviar" ng-click="AlterarUsuarioEndereco();" />
+                                        </td>
                                     </tr>
-                                    
+
                                 </table>
                             }
                         </div>
@@ -218,9 +204,6 @@
     </div>
     <div class="clear">&nbsp;</div>
 </div>
-
-
-
 
 
 

@@ -5,7 +5,7 @@ namespace SalesForceWeb.Domain.Interfaces
 {
     public interface IDocumento
     {
-        bool CPFJaCadastrado(Cpf cpf, int usuarioid);
+        
       
     }
 }

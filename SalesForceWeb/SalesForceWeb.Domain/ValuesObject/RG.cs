@@ -1,11 +1,12 @@
 ﻿using System;
+using Newtonsoft.Json.Linq;
 
 namespace SalesForceWeb.Domain.ValuesObject
 {
     public class RG
     {
         public string CodigoRG { get; set; }
-        protected RG() { }
+        public RG() { }
 
         public RG(string RGCompleto){
 
@@ -19,6 +20,27 @@ namespace SalesForceWeb.Domain.ValuesObject
             }
         }
 
-        
+        public string CodigoRGJson(string v)
+        {
+            var resultado = string.Empty;
+            JArray usuarioarrray = JArray.Parse(v);
+            foreach (JObject obj in usuarioarrray.Children<JObject>())
+            {
+                foreach (JProperty prop in obj.Properties())
+                {
+                    switch (prop.Name)
+                    {
+                        case "codigoRG":
+                            resultado = prop.Value.ToString();
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+            return resultado;
+        }
+
+
     }
 }

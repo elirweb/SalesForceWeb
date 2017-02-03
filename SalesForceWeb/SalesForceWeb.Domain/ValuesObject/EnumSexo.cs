@@ -11,4 +11,6 @@ namespace SalesForceWeb.Domain.ValuesObject
         Masculino = 1,
         Feminino = 2
     }
+
+     
 }
