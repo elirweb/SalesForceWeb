@@ -105,7 +105,7 @@ namespace SalesForceWeb.Api.Controllers
             var dados = _documento.Localizar(p=>p.IDUsuario == idusuario);
             return dados.AsEnumerable();
 
-        }
+        }  
 
         [AcceptVerbs("GET")]
         [Route("EnderecoUsuario/{idusuario}")]
@@ -128,6 +128,7 @@ namespace SalesForceWeb.Api.Controllers
                 try
                 {
 
+                   
                     _documento.AddOrUpdate(doc);
                     _documento.commit();
                     var resposta = doc;

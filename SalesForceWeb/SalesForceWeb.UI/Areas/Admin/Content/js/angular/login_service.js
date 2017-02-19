@@ -76,6 +76,7 @@ myapp.controller('logincontroller' ,['$scope','$http', '$location', function ($s
     };
 
     $scope.AlterarDocumento = function () {
+        console.log($scope.formusuario);
         $http({
             url: 'http://localhost:61154/sales/Login/AtualizarDocumento',
             method: 'POST',

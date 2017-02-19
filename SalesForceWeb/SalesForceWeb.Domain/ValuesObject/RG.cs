@@ -1,8 +1,11 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using Newtonsoft.Json.Linq;
 
 namespace SalesForceWeb.Domain.ValuesObject
 {
+    [ComplexType]
+
     public class RG
     {
         public string CodigoRG { get; set; }

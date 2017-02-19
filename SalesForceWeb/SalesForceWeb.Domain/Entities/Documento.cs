@@ -1,4 +1,5 @@
-﻿using SalesForceWeb.Domain.ValuesObject;
+﻿using System;
+using SalesForceWeb.Domain.ValuesObject;
 
 namespace SalesForceWeb.Domain.Entities
 {

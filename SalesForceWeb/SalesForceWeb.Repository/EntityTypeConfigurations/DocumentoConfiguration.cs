@@ -21,6 +21,9 @@ namespace SalesForceWeb.Repository.EntityTypeConfigurations
 
             Property(c => c.RG.CodigoRG).HasColumnName("RG").HasColumnType("VARCHAR").HasMaxLength(20);
 
+            Property(c => c.DtAlteracao).HasColumnType("DATE");
+            Property(c => c.DtInclusao).HasColumnType("DATE");
+
 
 
             HasRequired(x => x.UsuarioModel)

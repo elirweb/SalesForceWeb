@@ -86,7 +86,7 @@ namespace SalesForceWeb.Repository.Repositorys
         public  void Update(TEntity obj)
         {
             
-           obj.DtAlteracao = DateTime.Now;
+           obj.DtAlteracao = DateTime.Now.Date;
            contexto.Entry(obj).State = EntityState.Modified;
         }
 

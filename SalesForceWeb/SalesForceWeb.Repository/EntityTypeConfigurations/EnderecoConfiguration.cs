@@ -17,6 +17,9 @@ namespace SalesForceWeb.Repository.EntityTypeConfigurations
             Property(c => c.Cidade).HasColumnType("VARCHAR").HasMaxLength(100);
             Property(c => c.Uf);
 
+            Property(c => c.DtAlteracao).HasColumnType("DATE");
+            Property(c => c.DtInclusao).HasColumnType("DATE");
+
             // 1 para 1
             HasRequired(x => x.UsuarioModel)
                                .WithMany()

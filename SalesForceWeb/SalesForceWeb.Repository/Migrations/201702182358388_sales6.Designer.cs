@@ -7,13 +7,13 @@ namespace SalesForceWeb.Repository.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.0-20911")]
-    public sealed partial class sales : IMigrationMetadata
+    public sealed partial class sales6 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(sales));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(sales6));
         
         string IMigrationMetadata.Id
         {
-            get { return "201610071823240_sales"; }
+            get { return "201702182358388_sales6"; }
         }
         
         string IMigrationMetadata.Source

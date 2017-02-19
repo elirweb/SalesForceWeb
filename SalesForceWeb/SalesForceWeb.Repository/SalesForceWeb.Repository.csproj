@@ -59,13 +59,37 @@
     <Compile Include="EntityTypeConfigurations\UsuarioConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\VeiculoConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\VendaConfiguration.cs" />
-    <Compile Include="Migrations\201610071823240_sales.cs" />
-    <Compile Include="Migrations\201610071823240_sales.Designer.cs">
-      <DependentUpon>201610071823240_sales.cs</DependentUpon>
+    <Compile Include="Migrations\201702182302539_sales.cs" />
+    <Compile Include="Migrations\201702182302539_sales.Designer.cs">
+      <DependentUpon>201702182302539_sales.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610071845579_sales1.cs" />
-    <Compile Include="Migrations\201610071845579_sales1.Designer.cs">
-      <DependentUpon>201610071845579_sales1.cs</DependentUpon>
+    <Compile Include="Migrations\201702182304349_sales1.cs" />
+    <Compile Include="Migrations\201702182304349_sales1.Designer.cs">
+      <DependentUpon>201702182304349_sales1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702182305199_sales2.cs" />
+    <Compile Include="Migrations\201702182305199_sales2.Designer.cs">
+      <DependentUpon>201702182305199_sales2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702182318366_sales3.cs" />
+    <Compile Include="Migrations\201702182318366_sales3.Designer.cs">
+      <DependentUpon>201702182318366_sales3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702182355206_sales4.cs" />
+    <Compile Include="Migrations\201702182355206_sales4.Designer.cs">
+      <DependentUpon>201702182355206_sales4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702182356463_sales5.cs" />
+    <Compile Include="Migrations\201702182356463_sales5.Designer.cs">
+      <DependentUpon>201702182356463_sales5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702182358388_sales6.cs" />
+    <Compile Include="Migrations\201702182358388_sales6.Designer.cs">
+      <DependentUpon>201702182358388_sales6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702182359462_sales7.cs" />
+    <Compile Include="Migrations\201702182359462_sales7.Designer.cs">
+      <DependentUpon>201702182359462_sales7.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,8 +101,13 @@
     <Compile Include="Repositorys\RepositoryUsuario.cs" />
     <Compile Include="Repositorys\RepositoryVeiculo.cs" />
     <Compile Include="Repositorys\RepositoryVenda.cs" />
+    <Compile Include="Seed\Documento.cs" />
+    <Compile Include="Seed\Endereco.cs" />
     <Compile Include="Seed\Marca.cs" />
     <Compile Include="Seed\Modelo.cs" />
+    <Compile Include="Seed\Tipo.cs" />
+    <Compile Include="Seed\Usuario.cs" />
+    <Compile Include="Seed\Veiculo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -93,11 +122,29 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610071823240_sales.resx">
-      <DependentUpon>201610071823240_sales.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201702182302539_sales.resx">
+      <DependentUpon>201702182302539_sales.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610071845579_sales1.resx">
-      <DependentUpon>201610071845579_sales1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201702182304349_sales1.resx">
+      <DependentUpon>201702182304349_sales1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702182305199_sales2.resx">
+      <DependentUpon>201702182305199_sales2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702182318366_sales3.resx">
+      <DependentUpon>201702182318366_sales3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702182355206_sales4.resx">
+      <DependentUpon>201702182355206_sales4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702182356463_sales5.resx">
+      <DependentUpon>201702182356463_sales5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702182358388_sales6.resx">
+      <DependentUpon>201702182358388_sales6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702182359462_sales7.resx">
+      <DependentUpon>201702182359462_sales7.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

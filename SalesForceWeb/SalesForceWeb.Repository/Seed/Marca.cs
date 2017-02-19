@@ -5,7 +5,7 @@ namespace SalesForceWeb.Repository.Seed
 {
     public class Marca
     {
-        public static void MarcaSeed(SalesForceWeb.Repository.EFDataBase.Contexto 
+        public static void MarcaSeed(EFDataBase.Contexto 
             contexto)
         {
             contexto.Marca.AddOrUpdate( 
