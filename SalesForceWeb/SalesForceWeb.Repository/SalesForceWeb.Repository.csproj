@@ -91,6 +91,14 @@
     <Compile Include="Migrations\201702182359462_sales7.Designer.cs">
       <DependentUpon>201702182359462_sales7.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702281604354_sales8.cs" />
+    <Compile Include="Migrations\201702281604354_sales8.Designer.cs">
+      <DependentUpon>201702281604354_sales8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702281610089_sales9.cs" />
+    <Compile Include="Migrations\201702281610089_sales9.Designer.cs">
+      <DependentUpon>201702281610089_sales9.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorys\RepositoryBase.cs" />
@@ -103,11 +111,13 @@
     <Compile Include="Repositorys\RepositoryVenda.cs" />
     <Compile Include="Seed\Documento.cs" />
     <Compile Include="Seed\Endereco.cs" />
+    <Compile Include="Seed\Itens.cs" />
     <Compile Include="Seed\Marca.cs" />
     <Compile Include="Seed\Modelo.cs" />
     <Compile Include="Seed\Tipo.cs" />
     <Compile Include="Seed\Usuario.cs" />
     <Compile Include="Seed\Veiculo.cs" />
+    <Compile Include="Seed\Venda.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -145,6 +155,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702182359462_sales7.resx">
       <DependentUpon>201702182359462_sales7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702281604354_sales8.resx">
+      <DependentUpon>201702281604354_sales8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702281610089_sales9.resx">
+      <DependentUpon>201702281610089_sales9.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

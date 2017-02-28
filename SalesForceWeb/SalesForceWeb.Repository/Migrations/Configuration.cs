@@ -34,7 +34,10 @@ namespace SalesForceWeb.Repository.Migrations
             //Endereco.EnderecoSeed(context);
 
             //Tipo.TipoSeed(context);
-             //Veiculo.VeiculoSeed(context);
+            //Veiculo.VeiculoSeed(context);
+
+            //Venda.VendaSeed(context);
+            Itens.ItensSeed(context);
         }
     }
 }

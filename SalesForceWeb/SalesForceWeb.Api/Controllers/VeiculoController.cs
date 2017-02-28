@@ -31,16 +31,16 @@ namespace SalesForceWeb.Api.Controllers
             var contexto_ = new Contexto();
             
             var selecao = (from tp in contexto_.Tipo
-                           from vc in contexto_.veiculo.Where(vc => vc.CodigoTipo == tp.Id).DefaultIfEmpty()
-                           from mod in contexto_.Modelo.Where(mod=>mod.Id == vc.CodigoModelo).DefaultIfEmpty()
-                           from mc in contexto_.Marca.Where(mc=>mc.Id == mod.IDMarca).DefaultIfEmpty()
+                           from vc in contexto_.veiculo.Where(vc => vc.CodigoTipo == tp.Id)
+                           from mod in contexto_.Modelo.Where(mod=>mod.Id == vc.CodigoModelo)
+                           from mc in contexto_.Marca.Where(mc=>mc.Id == mod.IDMarca)
                            select new {
                                tp.TipoVeiculo,
                                vc.Cor,
                                vc.Placa,
                                NomeCarro = mod.Nome, // para não dar duplicidade nos valores 
                                MarcaCarro = mc.Nome,
-                               vc.DtInclusao
+                              vc.DtInclusao
                            }
                            
                            ).ToList();
@@ -54,9 +54,9 @@ namespace SalesForceWeb.Api.Controllers
             var contexto_ = new Contexto();
 
             var selecao = (from tp in contexto_.Tipo
-                           from vc in contexto_.veiculo.Where(vc => vc.CodigoTipo == tp.Id).DefaultIfEmpty()
-                           from mod in contexto_.Modelo.Where(mod => mod.Id == vc.CodigoModelo).DefaultIfEmpty()
-                           from mc in contexto_.Marca.Where(mc => mc.Id == mod.IDMarca).DefaultIfEmpty()
+                           from vc in contexto_.veiculo.Where(vc => vc.CodigoTipo == tp.Id)
+                           from mod in contexto_.Modelo.Where(mod => mod.Id == vc.CodigoModelo)
+                           from mc in contexto_.Marca.Where(mc => mc.Id == mod.IDMarca)
                            select new
                            {
                                tp.TipoVeiculo,
@@ -79,9 +79,9 @@ namespace SalesForceWeb.Api.Controllers
             var contexto_ = new Contexto();
             
             var selecao = (from tp in contexto_.Tipo
-                           from vc in contexto_.veiculo.Where(vc => vc.CodigoTipo == tp.Id).DefaultIfEmpty()
-                           from mod in contexto_.Modelo.Where(mod => mod.Id == vc.CodigoModelo).DefaultIfEmpty()
-                           from mc in contexto_.Marca.Where(mc => mc.Id == mod.IDMarca).DefaultIfEmpty()
+                           from vc in contexto_.veiculo.Where(vc => vc.CodigoTipo == tp.Id)
+                           from mod in contexto_.Modelo.Where(mod => mod.Id == vc.CodigoModelo)
+                           from mc in contexto_.Marca.Where(mc => mc.Id == mod.IDMarca)
                            select new
                            {
                                tp.TipoVeiculo,
@@ -103,9 +103,9 @@ namespace SalesForceWeb.Api.Controllers
             var contexto_ = new Contexto();
 
             var selecao = (from tp in contexto_.Tipo
-                           from vc in contexto_.veiculo.Where(vc => vc.CodigoTipo == tp.Id).DefaultIfEmpty()
-                           from mod in contexto_.Modelo.Where(mod => mod.Id == vc.CodigoModelo).DefaultIfEmpty()
-                           from mc in contexto_.Marca.Where(mc => mc.Id == mod.IDMarca).DefaultIfEmpty()
+                           from vc in contexto_.veiculo.Where(vc => vc.CodigoTipo == tp.Id)
+                           from mod in contexto_.Modelo.Where(mod => mod.Id == vc.CodigoModelo)
+                           from mc in contexto_.Marca.Where(mc => mc.Id == mod.IDMarca)
                            select new
                            {
                                tp.TipoVeiculo,
